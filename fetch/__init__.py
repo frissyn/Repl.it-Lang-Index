@@ -2,6 +2,7 @@ import requests
 
 URL = "https://eval.repl.it/languages"
 
+
 def format_icon(link: str):
     base = "https://repl.it"
 
@@ -33,7 +34,8 @@ def all_languages(sortBy="abc"):
 
         cats = sorted(list(set([l["category"] for l in r])))
         cats.remove("Pratical")
-        for cat in cats: result[cat] = []
+        for cat in cats:
+            result[cat] = []
 
         for l in r:
             if l["category"] == "Pratical":
