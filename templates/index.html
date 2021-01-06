@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Repl.it Languages</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/support.css">
+    <link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+</head>
+
+<body>
+<section class="hero is-primary">
+    <div class="hero-body">
+        <div class="columns">
+        <div class="column is-12">
+            <div class="container">
+                <h1 class="title">
+                    <i class="is-large mdi mdi-cog"></i>
+                    <i class="is-large mdi mdi-wrench"></i>
+                    &nbsp;Repl.it Languages!
+                </h1>
+                <h3 class="subtitle">
+                    View details on <b>all</b> of Repl.it's supported langauges in one place!
+                    Created by <a href="//github.com/IreTheKID">IreTheKID</a>.
+                </h3>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+    <div class="columns">
+        <div class="column is-3">
+            <aside class="is-medium menu">
+                <p class="menu-label">Categories</p>
+                <ul class="menu-list">
+                    {% for cat in cats %}
+                    <li>
+                        <a href="#{{ cat }}">
+                            <i class="mdi mdi-contain"></i>
+                            &nbsp;{{ cat.title() }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </aside>
+        </div>
+
+        <div class="column is-9">
+        <div class="content is-medium">
+            <h3 class="title is-3">Languages by Category:</h3>
+            <div class="content is-small">
+                <p>(Total Language Count: <b>{{ c }})</b></p>
+            </div>
+            {% for cat in cats %}
+            <div class="box is-primary">
+                <h4 id="{{ cat }}">{{ cat.title() }}</h4>
+                {% for lang in langs[cat] %}
+                    <a class="button is-medium" href="/{{ lang['name'] }}">
+                        {{ lang["name"].title() }}
+                    </a>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+    </div>
+</section>
+</body>
+
+</html>

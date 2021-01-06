@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{{ lang["displayName"].title() }} - Repl.it Languages</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/prism.css">
+    <link rel="stylesheet" href="../static/css/support.css">
+    <link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+</head>
+
+<body>
+<section class="hero is-primary">
+    <div class="hero-body">
+        <div class="columns">
+        <div class="column is-12">
+            <div class="container">
+                <h1 class="title">
+                    <figure class="image is-128x128"><img src="{{ icon }}"></figure>
+                    {{ lang["displayName"].title() }}
+                </h1>
+                <h3 class="subtitle">{{ lang["tagline"] }}</h3>
+                <a class="button is-danger is-medium" href="//repl.it/l/{{lang['name']}}">
+                    <i class="mdi mdi-plus"></i>
+                    &nbsp;Create a {{ lang["displayName"] }} Repl
+                </a>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h3 class="title is-3">Language Details</h3>
+        <div class="box">
+            <h5 class="title is-5">Default Run Command:</h5>
+            <pre class="is-fullwidth"><code class="language-javascript">{{ cmd }}</code></pre>
+
+            <br>
+
+            <h5 class="title is-5">Basic Details:</h5>
+            <table class="table is-hoverable is-bordered is-fullwidth">
+                <thead>
+                    <tr>
+                        <td><b>Attribute:</b></td>
+                        <td><b>Value:</b></td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for name in valids %}
+                    <tr>
+                        <td>{{ name.title() }}</td>
+                        <td>{{ lang[name] }}</td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td>Console Header</td>
+                        <td>{{ lang["consoleHeader"] }}</td>
+                    </tr>
+                    <tr>
+                        <td>Is Template?</td>
+                        <td>{{ is_temp }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <br>
+
+            <h5 class="title is-5">Raw Object:</h5>
+            <pre class="is-fullwidth"><code class="language-javascript">{{ raw }}</code></pre>
+        </div>
+    </div>
+</section>
+
+<script src="../static/js/code.js"></script>
+</body>
+
+</html>
