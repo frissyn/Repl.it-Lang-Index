@@ -61,7 +61,7 @@
             <div class="box is-primary">
                 <h4 id="{{ cat }}">{{ cat.title() }}</h4>
                 {% for lang in langs[cat] %}
-                    <a class="button is-medium" href="/{{ lang['name'] }}">
+                    <a class="button is-medium" style="margin-bottom: 5px" href="/{{ lang['name'] }}">
                         {{ lang["name"].title() }}
                     </a>
                 {% endfor %}
